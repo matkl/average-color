@@ -20,7 +20,7 @@ function addImage(file) {
     var rgb = getAverageColor(img);
     var hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
     var rgbStr = 'rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')';
-    var hexStr = '#' + rgb.r.toString(16) + rgb.g.toString(16) + rgb.b.toString(16);
+    var hexStr = '#' + ('0'+rgb.r.toString(16)).slice(-2) + ('0'+rgb.g.toString(16)).slice(-2) + ('0'+rgb.b.toString(16)).slice(-2);
     var hslStr = 'hsl(' + Math.round(hsl.h * 360) + ', ' + Math.round(hsl.s * 100) + '%, ' + Math.round(hsl.l * 100) + '%)';
 
     var box = element.querySelector('.box');

@@ -82,6 +82,14 @@ function rgbToHsl(r, g, b) {
   return { h: h, s: s, l: l };
 }
 
+function handleImages(files) {
+  document.getElementById('images').innerHTML = '';
+
+  for (var i = 0; i < files.length; i++) {
+    addImage(files[i]);
+  }
+}
+
 document.ondragover = function(event) {
   event.preventDefault();
   event.dataTransfer.dropEffect = 'copy';
@@ -89,11 +97,18 @@ document.ondragover = function(event) {
 
 document.ondrop = function(event) {
   event.preventDefault();
-
-  document.getElementById('images').innerHTML = '';
-
-  var files = event.dataTransfer.files;
-  for (var i = 0; i < files.length; i++) {
-    addImage(files[i]);
-  }
+  handleImages(event.dataTransfer.files);
 };
+
+(function() {
+  var upload = document.getElementById('upload');
+  var target = document.getElementById('target');
+
+  upload.onchange = function() {
+    handleImages(this.files);
+  };
+
+  target.onclick = function() {
+    upload.click();
+  };
+})();

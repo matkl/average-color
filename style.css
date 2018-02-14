@@ -16,8 +16,10 @@ h1 {
 #target {
   border: 2px dashed #ccc;
   color: #ccc;
+  cursor: pointer;
   font-size: 1.5em;
-  line-height: 4;
+  line-height: 1.5em;
+  padding: 1.5em;
   text-align: center;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -62,4 +64,8 @@ h1 {
 #footer {
   margin: 40px 0;
   text-align: center;
+}
+
+#upload {
+  display: none;
 }

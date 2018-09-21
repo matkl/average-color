@@ -100,6 +100,11 @@ document.ondrop = function(event) {
   handleImages(event.dataTransfer.files);
 };
 
+document.onpaste = function(event) {
+	event.preventDefault();
+  handleImages(event.clipboardData.files);
+};
+
 (function() {
   var upload = document.getElementById('upload');
   var target = document.getElementById('target');
